@@ -5,7 +5,6 @@ import { toggleMenu } from "./reduxcomponents/appSlice";
 import appstore from "./reduxcomponents/appstore";
 
 const Header = () => {
-  const toggle = useSelector((appstore) => appstore.app.isMenuOpen);
   const dispatch = useDispatch();
   const toggleMenuFunc = () => {
     dispatch(toggleMenu());
