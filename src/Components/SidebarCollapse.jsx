@@ -2,7 +2,7 @@ import React from "react";
 
 const SidebarCollapse = () => {
   return (
-    <div className="w-1/4 shadow-lg">
+    <div className="w-2/3 shadow-lg">
       <img
         className="h-8 my-4 mx-2"
         src="https://w7.pngwing.com/pngs/486/408/png-transparent-computer-icons-home-house-home-logo-angle-building-black.png"

@@ -2,7 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "./reduxcomponents/appSlice";
-import appstore from "./reduxcomponents/appstore";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -18,11 +18,14 @@ const Header = () => {
         className="col-span-1 h-8 cursor-pointer"
         onClick={toggleMenuFunc}
       />
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png"
-        alt="Youtube -logo"
-        className="col-span-2 h-8"
-      />
+
+      <a href="/">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png"
+          alt="Youtube -logo"
+          className="col-span-2 h-8"
+        />
+      </a>
 
       <div className="col-span-8 h-8">
         <SearchBar />
