@@ -6,7 +6,7 @@ const VideoList = () => {
     getvideos();
   }, []);
   const getvideos = async () => {
-    const data = fetch(ytLink);
+    const data = await fetch(ytLink);
     const json = await data.json;
     console.log(json);
   };
