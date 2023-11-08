@@ -24,3 +24,17 @@ Rest easy knowing that your content and data are protected with state-of-the-art
 Join us on this exhilarating journey, and redefine what's possible in the world of content creation. Dive into a universe of endless creativity, powered by AI, only on AIVideoCraft. Get started today!"
 
 ---
+
+- Debouncing:
+  typing slow :200ms
+  typingfast:50ms
+
+Performance:
+
+Debouncing with 200 ms
+-if the difference between 2 key strokes is less than <200ms> -Decline api call
+
+- cacheing
+
+object o(1) array- o(n)
+new map()

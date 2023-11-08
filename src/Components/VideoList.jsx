@@ -22,7 +22,7 @@ const VideoList = () => {
     <div>
       <div className="flex flex-wrap">
         {movies.map((movie) => (
-          <Link to={"/watch?v=" + movie.id}>
+          <Link to={"/watch?v=" + movie.id} key={movie.id}>
             {" "}
             <VideoCard key={movie.id} movie={movie} />
           </Link>

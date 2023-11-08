@@ -1,11 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "./reduxcomponents/appSlice";
 import { Link } from "react-router-dom";
+import { ytSearchLink } from "./utils/Constants";
+import updateSuggestions from "./reduxcomponents/searchsuggestionslice";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const searchResults = useSelector((appstore) => appstore.search);
+  const [querystring, setquerystring] = useState("");
+  const [suggestion, setsuggestion] = useState([]);
+  const [suggestiontoggle, setsuggestiontoggle] = useState(false);
+  const togglesuggestion = (e) => {
+    setsuggestiontoggle(e);
+  };
+  useEffect(() => {
+    const timing = setTimeout(() => {
+      if (searchResults[querystring]) {
+        setsuggestion(searchResults[querystring]);
+      } else {
+        searchresults();
+      }
+    }, 200);
+
+    return () => {
+      clearTimeout(timing);
+    };
+  }, [querystring]);
+
+  const searchresults = async () => {
+    console.log("api fetch -" + querystring);
+    const data = await fetch(ytSearchLink + querystring);
+    const json = await data.json();
+    setsuggestion(json[1]);
+
+    dispatch(updateSuggestions({ [querystring]: json[1] }));
+  };
+
+  const changequerystring = (e) => {
+    setquerystring(e.target.value);
+  };
+
   const toggleMenuFunc = () => {
     dispatch(toggleMenu());
   };
@@ -28,7 +64,13 @@ const Header = () => {
       </a>
 
       <div className="col-span-8 h-8">
-        <SearchBar />
+        <SearchBar
+          querystring={querystring}
+          changequerystring={changequerystring}
+          suggestion={suggestion}
+          suggestiontoggle={suggestiontoggle}
+          togglesuggestion={togglesuggestion}
+        />
       </div>
 
       <img
