@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "./reduxcomponents/appSlice";
 import { Link } from "react-router-dom";
 import { ytSearchLink } from "./utils/Constants";
-import updateSuggestions from "./reduxcomponents/searchsuggestionslice";
+import { updateSuggestions } from "./reduxcomponents/searchsuggestionslice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,9 @@ const Header = () => {
     console.log("api fetch -" + querystring);
     const data = await fetch(ytSearchLink + querystring);
     const json = await data.json();
+    console.log(json[1]);
     setsuggestion(json[1]);
+    console.log({ [querystring]: json[1] });
 
     dispatch(updateSuggestions({ [querystring]: json[1] }));
   };
