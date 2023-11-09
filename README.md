@@ -39,4 +39,16 @@ Debouncing with 200 ms
 object o(1) array- o(n)
 new map()
 
-N level nested comments
+N level nested comments making
+
+- Pagination
+- infinite scroll
+- live chat
+
+- Challenges of live chat
+
+  - to get data live
+  - update the UI(if we keep on pushing or re rendering for every comment my page will bloat ) so we have to update UI efficently
+    - Live data Handling
+      - WebSockets (creates a handshake between backenddata and ui {bidirectional}[no regular interval])
+      - Api Polling or log polling
