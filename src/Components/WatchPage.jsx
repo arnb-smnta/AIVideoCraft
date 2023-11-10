@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 
 import CommentsContainer from "./CommentsContainer";
 import { DummyComments } from "./utils/Helper";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -16,9 +17,9 @@ const WatchPage = () => {
     dispatch(closemenu());
   };
   return (
-    <div className="w-full grid grid-flow-col ">
-      <div className="col-span-6">
-        <div className="w-full">
+    <div className=" grid grid-flow-col w-full">
+      <div className="bg-yellow-600 w-[63rem]">
+        <div className="">
           <iframe
             width="1000"
             height="600"
@@ -29,7 +30,7 @@ const WatchPage = () => {
             allowfullscreen
           ></iframe>
         </div>
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between ">
           <div>
             <h1 className="p-4">Prime Video</h1>
             <button className="p-4">Subscribe</button>
@@ -46,10 +47,10 @@ const WatchPage = () => {
           <CommentsContainer DummyComments={DummyComments} />
         </div>
       </div>
-      <div className="bg-black text-yellow-600 col-span-6 w-full">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, et
-        facilis inventore at illo amet quos ad! Nisi, assumenda, odit debitis
-        animi reiciendis consequuntur alias nesciunt corporis, quam eius soluta.
+      <div className=" text-yellow-600 m-2">
+        <div className="h-[37rem] w-[22rem] border border-gray-500 p-2">
+          <LiveChat />
+        </div>
       </div>
     </div>
   );

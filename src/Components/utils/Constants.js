@@ -3,3 +3,4 @@ export const ytLink = `https://youtube.googleapis.com/youtube/v3/videos?part=sni
 
 export const ytSearchLink =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+export const LIVE_CHAT_COUNT = 200;
